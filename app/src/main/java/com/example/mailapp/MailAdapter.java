@@ -3,12 +3,15 @@ package com.example.mailapp;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Movie;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.core.graphics.drawable.DrawableCompat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +21,7 @@ public class MailAdapter extends ArrayAdapter<MailDetail> {
 
     private Context mContext;
     private List<MailDetail> MailList = new ArrayList<>();
-    private String[] colors = {"yellow", "cyan", "purple", "green"};
+    private String[] colors = {"yellow", "cyan", "purple", "green", "red", "grey"};
 
     public MailAdapter(Context context, ArrayList<MailDetail> list) {
         super(context, 0, list);
@@ -40,8 +43,11 @@ public class MailAdapter extends ArrayAdapter<MailDetail> {
         TextView message = (TextView) listItem.findViewById(R.id.usermessage);
         TextView time = (TextView) listItem.findViewById(R.id.receivetime);
 
-//        int rnd = new Random().nextInt(colors.length);
-//        avatarcolor.setBackgroundColor(Color.parseColor(colors[rnd]));
+        int rnd = new Random().nextInt(colors.length);
+        Drawable background= avatarcolor.getBackground();
+        background = DrawableCompat.wrap(background);
+        DrawableCompat.setTint(background, Color.parseColor(colors[rnd]));
+        avatarcolor.setBackground(background);
         avatarname.setText(currentMail.username.substring(0, 1));
         username.setText(currentMail.username);
         message.setText(currentMail.message);
