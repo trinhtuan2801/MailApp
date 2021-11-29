@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#FFFFFF"
-    android:backgroundTint="#FFFFFF">
+    android:backgroundTint="#FFFFFF"
+    android:padding="10dp">
 
     <ImageView
         android:id="@+id/avatarcolor"
         android:layout_width="66dp"
         android:layout_height="64dp"
-        android:layout_marginStart="16dp"
         android:background="@drawable/avatar"
         android:backgroundTint="#ED5454"
         android:contentDescription="user avatar"
@@ -37,12 +37,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
         android:text="Tuan"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/avatarcolor"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/avatarcolor" />
 
     <TextView
         android:id="@+id/usermessage"
@@ -60,22 +59,17 @@
         android:id="@+id/receivetime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="16dp"
         android:text="12:30 PM"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/avatarcolor" />
 
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="39dp"
         android:layout_height="40dp"
-        android:layout_marginEnd="16dp"
         android:backgroundTint="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/receivetime"
         app:layout_constraintTop_toBottomOf="@+id/receivetime"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@android:drawable/btn_star_big_off"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>
